@@ -108,12 +108,47 @@ class Program
 {
     static void Main(string[] args)
     {
-        FabriqueVehicule fabrique = new FabriqueVehiculeElectrique();
-        Catalogue catalogue = new Catalogue(fabrique);
-        catalogue.AfficherCarac();
+        Console.WriteLine("Quel type de véhicule voulez-vous ?");
+        
+        switch (Console.ReadLine().ToLower())
+        {
+            case "voiture":
+                Console.WriteLine("Quel type de carburant voulez-vous ?");
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "electrique":
+                        FabriqueVehicule fabrique = new FabriqueVehiculeElectrique();
+                        Catalogue catalogue = new Catalogue(fabrique);
+                        catalogue.AfficherCarac();
+                        break;
+                    case "essence":
+                        fabrique = new FabriqueVehiculeEssence();
+                        catalogue = new Catalogue(fabrique);
+                        catalogue.AfficherCarac();
+                        break;
+                }
+                break;
+            case "scooter":
+                Console.WriteLine("Quel type de carburant voulez-vous ?");
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "electrique":
+                        FabriqueVehicule fabrique = new FabriqueVehiculeElectrique();
+                        Catalogue catalogue = new Catalogue(fabrique);
+                        catalogue.AfficherCarac();
+                        break;
+                    case "essence":
+                        fabrique = new FabriqueVehiculeEssence();
+                        catalogue = new Catalogue(fabrique);
+                        catalogue.AfficherCarac();
+                        break;
+                }
+                break;
+            default:
+                Console.WriteLine("Choix invalide, choix possible : 'Voiture' ou 'Scooter'");
+                break;
+        }
 
-        fabrique = new FabriqueVehiculeEssence();
-        catalogue = new Catalogue(fabrique);
-        catalogue.AfficherCarac();
+      
     }
 }
